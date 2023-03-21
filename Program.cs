@@ -17,8 +17,6 @@ var app = builder.Build();
 app.MapHealthChecks("/healthz");
 app.UseCors();
 
-app.UseHttpsRedirection();
-
 app.MapPost("/Email", (MailRequest request) =>
 {
     if(!InternetAddress.TryParse(request.Email, out InternetAddress formatedAddress))
